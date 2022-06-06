@@ -1,0 +1,31 @@
+{
+    // 用来指定哪些ts文件需要被编译
+    "include": [
+        "./src/**/*" //编译src下的文件，src如果不存在就会报错
+    ],
+    //不包含哪些文件
+    // "exclude": [
+    //     "./src/hello/**/*" //hello下面的文件不需要被编译
+    // ],
+    "complierOptions": {
+        "target": "es2017",
+        "module": "es6",
+        "lib": [
+            "ES6",
+            "DOM"
+        ],
+        "noEmitOnError": true,
+        // "outDir": "dist",
+        // "outFile": "dist/aa.js",
+        // "allowJs": false,
+        // "removeComments": true,
+        // "noEmit": false,
+        // "noEmitOnError": true,
+        // 所有严格检查的总开关
+        "strict": true,
+        // "alwaysStrict": true,
+        // "noImplicitAny": true,
+        // "noImplicitThis": true,
+        // "strictNullChecks": true,
+    }
+}
