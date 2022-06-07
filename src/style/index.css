@@ -30,6 +30,8 @@ body {
   background-color: #000;
   border: 1px solid #b7d4a8;
   position: absolute;
+  left: 0;
+  right: 0;
 }
 #main #stage #food {
   display: flex;
