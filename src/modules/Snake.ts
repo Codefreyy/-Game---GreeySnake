@@ -6,7 +6,7 @@ export default class Snake {
     //获取蛇的容器
     element: HTMLElement
     constructor() {
-        this.element = document.getElementById('snake')
+        this.element = document.getElementById('snake')!;
         this.head = document.querySelector('#snake>div') as HTMLElement;
 
         this.bodies = this.element.getElementsByTagName('div');
@@ -52,6 +52,9 @@ export default class Snake {
     setY(value: number) {
         if (this.getY() === value) {
             return
+        }
+        if (value < 0 || value > 290) {
+            throw new Error('蛇撞墙了！')
         }
         if (this.bodies[1] && (this.bodies[1] as HTMLElement).offsetTop === value) {
             //如果用户向让蛇掉头，那我们就人为地再把方向设反
