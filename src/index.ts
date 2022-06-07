@@ -2,4 +2,5 @@
 import './style/index.less'
 import GameControl from './modules/GameControl'
 
-new GameControl();
+const gc = new GameControl();
+gc.init()
