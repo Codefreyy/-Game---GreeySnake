@@ -3,9 +3,11 @@
   padding: 0;
   box-sizing: border-box;
 }
+
 body {
   font: bold 20px "Courier";
 }
+
 #main {
   display: flex;
   flex-flow: column;
@@ -14,17 +16,19 @@ body {
   width: 360px;
   height: 420px;
   background-color: #b7d4a8;
-  margin: 100px auto;
+  margin: calc(((100vh-420px))/2) auto;
   border: 10px solid black;
   border-radius: 40px;
 }
+
 #main #stage {
   position: relative;
   width: 304px;
   height: 304px;
   border: 2px solid black;
 }
-#main #stage #snake > div {
+
+#main #stage #snake>div {
   width: 10px;
   height: 10px;
   background-color: #000;
@@ -33,6 +37,7 @@ body {
   left: 0;
   right: 0;
 }
+
 #main #stage #food {
   display: flex;
   flex-flow: row wrap;
@@ -44,12 +49,14 @@ body {
   left: 40px;
   top: 100px;
 }
-#main #stage #food > div {
+
+#main #stage #food>div {
   transform: rotate(45deg);
   width: 4px;
   height: 4px;
   background-color: black;
 }
+
 #main #score-panel {
   width: 300px;
   display: flex;

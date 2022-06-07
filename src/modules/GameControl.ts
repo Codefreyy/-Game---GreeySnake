@@ -15,7 +15,7 @@ export default class GameControl {
     constructor() {
         this.snake = new Snake();
         this.food = new Food();
-        this.scorePanel = new ScorePanel();
+        this.scorePanel = new ScorePanel(10, 10);
         this.init();
     }
     //初始化游戏，调用后游戏开始
@@ -59,9 +59,33 @@ export default class GameControl {
                 break;
         }
 
-        this.snake.setX(X);
-        this.snake.setY(Y);
+        this.checkEat(X, Y);
+
+        try {
+            this.snake.setX(X);
+            this.snake.setY(Y);
+        } catch (e) {
+            alert(e.message);
+            //将isLive设置为false
+            this.isLive = false;
+        }
+
 
         this.isLive && setTimeout(this.run, 300 - (this.scorePanel.level) * 30);
     }
+
+    //定义一个方法，用来检测蛇是否吃到食物。
+    checkEat(X: number, Y: number) {
+        if (this.food.getX() && Y === this.food.getY()) {
+            //食物的位置要重置
+            this.food.change();
+            //分数增加
+            this.scorePanel.addScore()
+            //蛇增加一节
+            this.snake.addBody()
+        }
+
+        //当x和y坐标都重合的时候，才会return true
+    }
+
 }
